@@ -1,0 +1,368 @@
+* {
+	margin:0;
+  padding:0;
+  
+}
+
+body{
+  font-family: 'Montserrat';
+    height: 100%;
+    overflow-x: hidden; /* escondendo a scrollbar horizontal */  
+}
+
+ /* cabeçalho */
+header {
+    /* background: linear-gradient(to bottom, rgba(48,242,197,1) 0%,rgba(21,239,181,1) 0%,rgba(127,187,239,1) 100%); */
+    padding: 20px 30px;
+    
+    /*position: fixed;*/          /* position fixed do header */
+    background: #242222;
+    width: 100%;
+    margin: 0;
+}
+
+ /* logo */
+ #logo{
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+ #logo span{
+    font-weight: 200;
+    color: rgb(70, 252, 212);
+}
+ #logo img{
+    width: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+ /* menu */
+ #menu{
+    display: inline-block;
+    text-align: right;
+    position: relative;
+}
+
+ #menu ul{
+    list-style: none;
+    margin: 10px 0 10px 0;
+}
+
+ #menu ul li{
+    display: inline-block;
+}
+
+ #menu ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: 0.3s ease all;
+}
+
+ #menu ul li a:hover{
+    font-size: 16px;
+}
+
+
+
+ /* main */
+
+
+.imagens {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1px;
+  }
+
+  .imagens:hover img{
+      size: 50%;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .coluna-imagens {
+    flex: 50%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .desenho{
+    cursor: pointer;
+  }
+
+  .desenho:hover{
+      opacity: 0.9;
+  }
+
+  /* O Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* conteúdo do Modal (Image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* legenda da imagem Modal (Image Text) - mesma largura que a imagem */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* add animação - zoom no Modal */
+  .modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+
+ /* footer */
+footer{
+    background: #242222;
+    height: 75px;
+}
+
+footer #redes_sociais{
+    display: table-cell;
+}
+
+footer #redes_sociais ul{
+    text-align: right;
+    
+}
+
+footer #redes_sociais ul li{
+    display: inline-block;
+
+}
+
+footer #redes_sociais ul li a img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 40px;
+}
+
+/*--------------------------------------------- Artista ----------------------------------------------*/
+#banner-principal{
+    height: 400px;
+    width: 100%;
+    background-image: url('/images/folhas.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: table;
+}
+
+#container-foto-nome-bio{
+    height: 100%;
+    width: 100%;
+}
+
+#container-foto-artista{
+    top: 18%;
+    margin-left: 70px;
+}
+
+#foto-artista{
+    width: 250px;
+    border-radius: 50%;
+}
+
+#nome-artista{
+    color: white;
+    margin-top: 80px;
+    font-size: 50px;
+}
+
+#bio-artista{
+    display: inline-block;
+    color: white;
+    font-weight: 200;
+}
+
+#nome-bio-botao a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+#nome-bio-botao p{
+    display: inline-block;
+}
+
+#botao-ver-portfolio{
+    background: rgb(70, 252, 212);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin-left: 20%;
+}
+
+#container-principal{
+    padding: 30px 50px 0;
+    margin: 0 auto;
+}
+
+/*------------------------------------------ Compre ------------------------------------------------------------*/
+
+#container-loja{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    padding: 0;
+}
+
+#container-comissao{
+    background: pink;
+    height: 100%;
+    width: 50%;
+    padding: 0;
+}
+
+.imagem-loja{
+    display: block;
+    width: 100%;
+    height: auto;
+    position: center top;
+    size: cover;
+}
+
+.imagem-comissao{
+    display: block;
+    height: 100%;
+    height: auto;
+    position: center top;
+    size: cover;
+}
+
+.overlay-loja {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    opacity: 0.5;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+  }
+
+  .overlay-comissao {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    background-color: #ffffff;
+    opacity: 0.5;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+  }
+
+  #container-loja:hover .overlay-loja {
+    width: 100%;
+    left: 0;
+  }
+
+  #container-comissao:hover .overlay-comissao {
+    width: 100%;
+    left: 0;
+  }
+
+  #container-loja:hover .imagem-loja{
+    filter: blur(3px);
+  }
+
+  #container-comissao:hover .imagem-comissao{
+    filter: blur(3px);
+  }
+
+  .texto {
+    color: black;
+    font-weight: 1000;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+/*------------------------------------------- Contato ------------------------------------------------------*/
+form{
+    margin-top: 50px;
+}
+
+.input{
+    display: block;
+    margin: 0 0 30px 0;
+    width: 30%;
+    padding: 10px;
+}
+
+
+
+
