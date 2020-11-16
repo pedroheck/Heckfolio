@@ -64,7 +64,7 @@ export = class Arte {
 
 		await Sql.conectar(async (sql) => {
 
-			lista = await sql.query("select idArte, titleArte, descArte, dateArte from arte");
+			lista = await sql.query("select idArte, titleArte, descArte, date_format(dateArte, '%d/%m/%Y') dateArte from arte");
 		
 		});
 

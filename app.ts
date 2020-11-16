@@ -2,6 +2,8 @@
 import path = require("path");
 import ejs = require("ejs");
 import lru = require("lru-cache");
+import wrap = require("express-async-error-wrapper");
+import Arte = require("./models/arte");
 
 const app = express();
 
@@ -42,9 +44,13 @@ app.use("/api/arte", require("./routes/api/arte"));
 // @@@ Preencher aqui!!!
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-app.get("/", (req: express.Request, res: express.Response) => {
-	res.render("index");
-});
+app.get("/", wrap(async (req: express.Request, res: express.Response) => {
+	let opcoes = {
+		artes: await Arte.listar()
+	};
+
+	res.render("index", opcoes);
+}));
 app.get("/artista", (req: express.Request, res: express.Response) => {
 	res.render("artista");
 });
@@ -53,6 +59,9 @@ app.get("/compre", (req: express.Request, res: express.Response) => {
 });
 app.get("/contato", (req: express.Request, res: express.Response) => {
 	res.render("contato");
+});
+app.get("/upload", (req: express.Request, res: express.Response) => {
+	res.render("upload");
 });
 
 app.listen(1337, () => {

@@ -3,9 +3,8 @@ CREATE SCHEMA sitesegunda;
 USE sitesegunda;
 
 CREATE TABLE arte (
-    idarte INT NOT NULL,
-    titlearte VARCHAR(100) NOT NULL,
-    descarte VARCHAR(200) NOT NULL,
-    datearte DATE NOT NULL,
-    PRIMARY KEY (idarte)
+    idArte INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    titleArte VARCHAR(100) NOT NULL,
+    descArte VARCHAR(200) NOT NULL,
+    dateArte DATE NOT NULL
 );

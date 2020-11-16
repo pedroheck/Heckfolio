@@ -1,0 +1,110 @@
+<main>
+		
+	<form id="formCriar">
+		
+		<div>
+			<label for="titleArte">Título</label>
+			<input type="text" id="titleArte" name="titleArte" maxlength="100" />
+		</div>
+		
+		<div>
+			<label for="descArte">Descrição</label>
+			<textarea id="descArte" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
+		</div>
+		
+		<div>
+			<label for="dateArte">Data de Criação</label>
+			<input type="date" id="dateArte" name="dateArte" />
+		</div>
+		
+		<div>
+			<label for="imagem">Imagem</label>
+			<input type="file" id="imagem" name="imagem" accept="image/jpeg" />
+		</div>
+		
+		<div>
+			<button type="submit">
+				<i class="fa fa-plus"></i>
+				Criar
+			</button>
+			
+			<a href="/">
+				<i class="fa fa-arrow-left"></i>
+				Voltar
+			</a>
+		</div>
+		
+	</form>
+	
+	<!--
+		jQuery Validate 1.19
+		
+		https://jqueryvalidation.org/documentation/
+		https://jqueryvalidation.org/documentation/#link-list-of-built-in-validation-methods
+		https://jqueryvalidation.org/validate/
+		https://jqueryvalidation.org/reference/
+	-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_pt_BR.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		$("#formCriar").validate({
+			
+			rules: {
+				
+				titleArte: {
+					required: true,
+					maxlength: 100
+				},
+				
+				descArte: {
+					required: true,
+					maxlength: 200
+				},
+				
+				dateArte: {
+					required: true
+				}
+				
+			},
+			
+			submitHandler: function (form) {
+
+				if ($.active) {
+					return;
+				}
+				
+				let opcoes = {
+					
+					url: "/api/arte/criar",
+					
+					// Não precisa do cache para POST e PUT!
+					method: "POST",
+					
+					// Só com campos de texto/data/número
+					//data: $("#formCriar").serialize(),
+
+					// Geral (incluindo um ou mais arquivos)
+					data: new FormData(form),
+					processData: false,
+					contentType: false,
+
+					success: function (dadosDeRetorno) {
+						alert("Sucesso! " + dadosDeRetorno);
+					},
+					
+					error: function () {
+						alert("Deu ruim! :(");
+					}
+					
+				};
+				
+				$.ajax(opcoes);
+			}
+			
+		});
+	</script>
+
+</main>

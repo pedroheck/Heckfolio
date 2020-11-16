@@ -1,4 +1,16 @@
 <main>
+
+    <% for (let i = 0; i < artes.length; i++) { %>
+    <div>
+        <h1><%= artes[i].titleArte %></h1>
+        <div>
+            <img src="/images/artes/<%= artes[i].idArte %>.jpg" />
+        </div>
+        <div style="white-space: pre-wrap;"><%= artes[i].descArte %></div>
+        <small>(<%= artes[i].dateArte %>)</small>
+    </div>
+    <% } %>
+
     <div class="row imagens">
         <div class="column coluna-imagens">
             <img src="/images/desenho_astronauta_2.jpg" id="astronauta" class="desenho" alt="Pintura Astronauta Amarelo">
