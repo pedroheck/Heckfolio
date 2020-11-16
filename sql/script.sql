@@ -1,11 +1,11 @@
-CREATE SCHEMA siteSegunda;
+CREATE SCHEMA sitesegunda;
 
-USE siteSegunda;
+USE sitesegunda;
 
-CREATE TABLE Arte (
-    idArte INT NOT NULL,
-    titleArte VARCHAR(100) NOT NULL,
-    descArte VARCHAR(200) NOT NULL,
-    dateArte DATE NOT NULL,
-    PRIMARY KEY (idArte)
+CREATE TABLE arte (
+    idarte INT NOT NULL,
+    titlearte VARCHAR(100) NOT NULL,
+    descarte VARCHAR(200) NOT NULL,
+    datearte DATE NOT NULL,
+    PRIMARY KEY (idarte)
 );
