@@ -5,7 +5,7 @@
 }
 
 body{
-  font-family: 'Montserrat';
+    font-family: 'Montserrat';
     height: 100%;
     overflow-x: hidden; /* escondendo a scrollbar horizontal */  
 }
@@ -89,11 +89,11 @@ header {
   /* Create two equal columns that sits next to each other */
   .coluna-imagens {
     flex: 50%;
-    padding: 0 4px;
+    padding: 0 2px;
   }
   
   .column img {
-    margin-top: 8px;
+    margin-top: 4px;
     vertical-align: middle;
     width: 100%;
   }
