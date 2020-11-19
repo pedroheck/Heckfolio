@@ -171,7 +171,7 @@ export = class Arte {
 			// caso a exclusão do arquivo dê errado
 			await sql.beginTransaction();
 
-			await sql.query("delete from pessoa where id = ?", [idArte]);
+			await sql.query("delete from arte where id = ?", [idArte]);
 
 			if (!sql.linhasAfetadas) {
 				erro = "Arte não encontrada. It Shall Not Pass!";
