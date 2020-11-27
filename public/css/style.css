@@ -14,8 +14,7 @@ body{
 header {
     /* background: linear-gradient(to bottom, rgba(48,242,197,1) 0%,rgba(21,239,181,1) 0%,rgba(127,187,239,1) 100%); */
     padding: 20px 30px;
-    
-    /*position: fixed;*/          /* position fixed do header */
+    z-index: 100;
     background: #242222;
     width: 100%;
     margin: 0;
@@ -98,12 +97,12 @@ header {
     width: 100%;
   }
 
-  .desenho{
+  /*.desenho{
     cursor: pointer;
-  }
+  }*/
 
   .desenho:hover{
-      opacity: 0.9;
+      opacity: 0.8;
   }
 
   /* O Modal (background) */
@@ -226,6 +225,8 @@ footer #redes_sociais ul li a img{
 
 #foto-artista{
     width: 250px;
+    height: 250px;
+    object-fit:cover;
     border-radius: 50%;
 }
 
@@ -239,6 +240,24 @@ footer #redes_sociais ul li a img{
     display: inline-block;
     color: white;
     font-weight: 200;
+}
+
+.redes-sociais ul{
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 30px;
+  background: rgb(255,255,255, 0.1);
+}
+
+.redes-sociais li{
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.icone-rede-social{
+  width: 35px;
+  margin: 8px;
+  opacity: 0.8;
 }
 
 #nome-bio-botao a{

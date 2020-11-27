@@ -1,4 +1,4 @@
-<main style="background: #242222;">
+<main style="background: rgb(43, 43, 43)">
 
     <!-- <% for (let i = 0; i < artes.length; i++) { %>
     <div>
@@ -17,16 +17,32 @@
         <div class="column coluna-imagens">
             <% for (let i = 0; i < artes.length; i++) { %>
                 <% if(i%2 == 0) {%>
-                    <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].titleArte %>"/>
+                    <div class="container-desenho">
+                        <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].titleArte %>"/>
+                    </div>
                 <% } %>   
             <% } %> 
+            <div class="container-desenho">
+                <img src="/images/mr_scott.jpg"class="desenho"/>
+            </div>
+            <div class="container-desenho">
+                <img src="/images/macaco_p&b.jpg"class="desenho"/>
+            </div>
         </div>
         <div class="column coluna-imagens">
             <% for (let i = 0; i < artes.length; i++) { %>
                 <% if(i%2 == 1) {%>
-                    <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].titleArte %>"/>
+                    <div class="container-desenho">
+                        <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].titleArte %>"/>
+                    </div>
                 <% } %>   
             <% } %> 
+            <div class="container-desenho">
+                <img src="/images/mao.jpg"class="desenho"/>
+            </div>
+            <div class="container-desenho">
+                <img src="/images/chernobyl.jpg"class="desenho"/>
+            </div>
         </div>
         <!-- The Modal -->
         <!-- <div id="myModal" class="modal"> -->
@@ -38,4 +54,4 @@
             <!-- <div id="caption"></div> -->
     </div>
 </main>
-<script src="/js/modal.js"></script>
+

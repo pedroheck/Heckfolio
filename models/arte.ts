@@ -24,7 +24,7 @@ export = class Arte {
 			return "Imagem inválida";
 		}
 
-		if (imagem.size > (1024 * 1024)) {
+		if (imagem.size > (4096 * 4096)) {
 			return "Imagem muito grande";
 		}
 
