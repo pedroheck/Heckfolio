@@ -63,6 +63,9 @@ app.get("/contato", (req: express.Request, res: express.Response) => {
 app.get("/upload", (req: express.Request, res: express.Response) => {
 	res.render("upload");
 });
+app.get("/excluir", (req: express.Request, res: express.Response) => {
+	res.render("excluir");
+});
 
 app.listen(1337, () => {
 	console.log("Executando servidor na porta 1337");
