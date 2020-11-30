@@ -8,6 +8,7 @@ body{
     font-family: 'Montserrat';
     height: 100%;
     overflow-x: hidden; /* escondendo a scrollbar horizontal */  
+    background: rgb(245, 244, 241);
 }
 
  /* cabeçalho */
@@ -30,8 +31,7 @@ header {
     font-weight: 600;
 }
 
- #logo span{
-    font-weight: 200;
+ .aquamarino{
     color: rgb(70, 252, 212);
 }
  #logo img{
@@ -39,6 +39,8 @@ header {
     margin-right: 10px;
     vertical-align: middle;
 }
+
+
 
  /* menu */
  #menu{
@@ -67,7 +69,8 @@ header {
 }
 
  #menu ul li a:hover{
-    font-size: 16px;
+    margin-bottom: 2px;
+    color: rgb(70, 252, 212);
 }
 
 
@@ -102,7 +105,7 @@ header {
   }*/
 
   .desenho:hover{
-      opacity: 0.8;
+      opacity: 0.85;
   }
 
   /* O Modal (background) */
@@ -221,6 +224,8 @@ footer #redes_sociais ul li a img{
 #container-foto-artista{
     top: 18%;
     margin-left: 70px;
+    height: 300px;
+    width: 300px;
 }
 
 #foto-artista{
@@ -247,6 +252,7 @@ footer #redes_sociais ul li a img{
   border: 1px solid white;
   border-radius: 30px;
   background: rgb(255,255,255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .redes-sociais li{
@@ -257,7 +263,7 @@ footer #redes_sociais ul li a img{
 .icone-rede-social{
   width: 35px;
   margin: 8px;
-  opacity: 0.8;
+  opacity: 0.86;
 }
 
 #nome-bio-botao a{
@@ -280,6 +286,33 @@ footer #redes_sociais ul li a img{
 #container-principal{
     padding: 30px 50px 0;
     margin: 0 auto;
+}
+
+.sobre{
+  text-align: center;
+  font-weight: 300;
+}
+
+.container-sobre{
+  padding: 20px 0 30px 20px;
+}
+
+.container-sobre-imagem1{
+  height: 400px;
+  margin-left: 20px;
+  float: right;
+  border-radius: 0 50px 0 0;
+}
+
+.container-sobre-imagem2{
+  height: 400px;
+  margin-right: 20px;
+  float: left;
+  border-radius: 0 0 0 80px;
+}
+
+.container-sobre-texto{
+  display: inline;
 }
 
 /*------------------------------------------ Compre ------------------------------------------------------------*/
@@ -361,7 +394,7 @@ footer #redes_sociais ul li a img{
   .texto {
     color: black;
     font-weight: 1000;
-    font-size: 40px;
+    font-size: 36px;
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,5 +1,120 @@
 <main>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div id="tabela_container" class="panel-body dataTable_wrapper">
+          
+        </div>
+      </div>
+    </div>
+  </div>
 
-  hola q tal
+  <div class="modal fade" tabindex="-1" role="dialog" id="modalExcluir">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Oops...</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            Tem certeza que deseja excluir o desenho? Esta operação <b class="col-h">NÃO</b> pode ser desfeita!
+          </p>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="excluir()"><i class="fa fa-check"></i>Excluir</button>
+          <button type="button" class="btn btn-outline btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <%- contentFor("scripts") %>
+  <script type="text/javascript">
+    //<![CDATA[
+    "use strict";
+
+    window.prepareCbSearchAllowLower = true;
+    // prepareCbSearch(document.getElementById("turma"));
+
+    var trClicada, tabela, turmaAtual = 0;
+
+    function criarTabela(dados) {
+      $("#tabela_wrapper").remove();
+      $("#tabela_container").append('<table class="table table-striped table-hover" id="tabela"></table>');
+
+      tabela = prepareDataTable("tabela", {
+        order: [[1, "asc"]],
+        deferRender: true,
+        columns: [
+          { title: "", "class": "col-min", searchable: false, orderable: false, data: "idArte", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"<%- root %>/arte/alterar?idArte=" + row.idArte + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+          { title: "Id", "class": "col-min text-right", "type": "number", data: "idArte" },
+          { title: "Título", render: encode, data: "titleArte" },
+          { title: "Descrição", render: encode, data: "descArte" },
+          { title: "Data de Criação", "class": "col-min text-right", "type": "customdatetimeint", data: "dateArte" }
+        ],
+        data: dados,
+        export: { title: "Desenhos" }
+      });
+
+      $("#tabela").on("click", "tbody button", function () {
+        if (JsonWebApi.active)
+          return;
+
+        var arte = tabela.row(trClicada = this.parentNode.parentNode).data();
+
+        if (this.getAttribute("data-excluir")) {
+          $("#lblTítulo").text(arte.titleArte);
+          $("#lblDescricao").text(arte.descArte);
+          $("#lblData").text(arte.dateArte);
+
+          $("#modalExcluir").modal({
+            backdrop: "static",
+            keyboard: true
+          });
+        }
+      });
+    }
+
+    function excluir() {
+      if (JsonWebApi.active || !trClicada)
+        return;
+
+      $("#modalExcluir").modal("hide");
+
+      var arte = tabela.row(trClicada).data();
+
+      Notification.wait();
+
+      JsonWebApi.get("<%- root %>/api/arte/excluir", function (response) {
+        if (response.success) {
+          Notification.success("Arte excluída com sucesso! " + emoji.happy);
+          tabela.row(trClicada).remove().draw();
+        } else {
+          Notification.error(response.value, true);
+        }
+        trClicada = null;
+      }, "idArte", arte.idArte);
+    }
+
+    // function atualizar() {
+    //   var turma = parseInt($("#turma").val());
+    //   if (turmaAtual === turma || JsonWebApi.active)
+    //     return;
+
+    //   JsonWebApi.get("<%- root %>/api/evento/listar", function (response) {
+    //     if (response.success) {
+    //       Notification.hide();
+    //       turmaAtual = turma;
+    //       criarTabela(response.value);
+    //     } else {
+    //       Notification.error(response.value, true);
+    //     }
+    //   }, "id_turma", turma);
+    // }
+
+    criarTabela(<%- lista %>);
+    //]]>
+  </script>
 </main>

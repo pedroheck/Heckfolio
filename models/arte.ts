@@ -9,6 +9,11 @@ export = class Arte {
 	public descArte: string;
 	public dateArte: string;
 
+
+
+	
+
+
 	// @@@ Upload de arquivos
 	// Esta função aqui abaixo serve para validar o arquivo enviado:
 	// ele não pode ter mais de 1 MiB.
@@ -58,6 +63,8 @@ export = class Arte {
 
 		return null;
 	}
+
+	
 
 	public static async listar(): Promise<Arte[]> {
 		let lista: Arte[] = null;
@@ -144,7 +151,7 @@ export = class Arte {
 			// caso a gravação do arquivo dê errado
 			await sql.beginTransaction();
 
-			await sql.query("update arte set titleArte = ?, descArte = ? where idArte = ?", [arte.titleArte, arte.descArte, arte.idArte]);
+			let lista = await sql.query("update arte set titleArte = ?, descArte = ? where idArte = ?", [arte.titleArte, arte.descArte, arte.idArte]);
 
 			if (!sql.linhasAfetadas) {
 				erro = "Arte não encontrada";
@@ -171,7 +178,7 @@ export = class Arte {
 			// caso a exclusão do arquivo dê errado
 			await sql.beginTransaction();
 
-			await sql.query("delete from arte where idArte = ?", [idArte]);
+			let lista = await sql.query("delete from arte where idArte = ?", [idArte]);
 
 			if (!sql.linhasAfetadas) {
 				erro = "Arte não encontrada. It Shall Not Pass!";
