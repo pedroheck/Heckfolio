@@ -1,110 +1,97 @@
-<main>
-		
+<main style="text-align: center;">
 	<form id="formCriar">
-		
-		<div>
+		<div id="container-form-upload">
 			<label for="titleArte">Título</label>
-			<input type="text" id="titleArte" name="titleArte" maxlength="100" />
-		</div>
-		
-		<div>
+			<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" />
+			
 			<label for="descArte">Descrição</label>
-			<textarea id="descArte" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
-		</div>
-		
-		<div>
+			<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
+			
 			<label for="dateArte">Data de Criação</label>
-			<input type="date" id="dateArte" name="dateArte" />
-		</div>
-		
-		<div>
+			<input type="date" id="dateArte" class="campoUpload" name="dateArte" />
+			
 			<label for="imagem">Imagem</label>
-			<input type="file" id="imagem" name="imagem" accept="image/*" />
-		</div>
-		
-		<div>
-			<button type="submit">
-				<i class="fa fa-plus"></i>
+			<input type="file" id="imagem" name="imagem" accept="image/*" style=""/>
+			
+			<button id="botao-upload" type="submit">
 				Criar
 			</button>
-			
-			<a href="/">
-				<i class="fa fa-arrow-left"></i>
-				Voltar
-			</a>
+				
+			<a href="/">Voltar</a>
 		</div>
-		
 	</form>
+
+
+
+<!--
+	jQuery Validate 1.19
 	
-	<!--
-		jQuery Validate 1.19
-		
-		https://jqueryvalidation.org/documentation/
-		https://jqueryvalidation.org/documentation/#link-list-of-built-in-validation-methods
-		https://jqueryvalidation.org/validate/
-		https://jqueryvalidation.org/reference/
-	-->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_pt_BR.min.js"></script>
+	https://jqueryvalidation.org/documentation/
+	https://jqueryvalidation.org/documentation/#link-list-of-built-in-validation-methods
+	https://jqueryvalidation.org/validate/
+	https://jqueryvalidation.org/reference/
+-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_pt_BR.min.js"></script>
+
+<script type="text/javascript">
 	
-	<script type="text/javascript">
+	$("#formCriar").validate({
 		
-		$("#formCriar").validate({
+		rules: {
 			
-			rules: {
-				
-				titleArte: {
-					required: true,
-					maxlength: 100
-				},
-				
-				descArte: {
-					required: true,
-					maxlength: 200
-				},
-				
-				dateArte: {
-					required: true
-				}
-				
+			titleArte: {
+				required: true,
+				maxlength: 100
 			},
 			
-			submitHandler: function (form) {
-
-				if ($.active) {
-					return;
-				}
-				
-				let opcoes = {
-					
-					url: "/api/arte/criar",
-					
-					// Não precisa do cache para POST e PUT!
-					method: "POST",
-					
-					// Só com campos de texto/data/número
-					//data: $("#formCriar").serialize(),
-
-					// Geral (incluindo um ou mais arquivos)
-					data: new FormData(form),
-					processData: false,
-					contentType: false,
-
-					success: function (dadosDeRetorno) {
-						alert("Sucesso! " + dadosDeRetorno);
-					},
-					
-					error: function () {
-						alert("Deu ruim! :(");
-					}
-					
-				};
-				
-				$.ajax(opcoes);
+			descArte: {
+				required: true,
+				maxlength: 200
+			},
+			
+			dateArte: {
+				required: true
 			}
 			
-		});
-	</script>
+		},
+		
+		submitHandler: function (form) {
+
+			if ($.active) {
+				return;
+			}
+			
+			let opcoes = {
+				
+				url: "/api/arte/criar",
+				
+				// Não precisa do cache para POST e PUT!
+				method: "POST",
+				
+				// Só com campos de texto/data/número
+				//data: $("#formCriar").serialize(),
+
+				// Geral (incluindo um ou mais arquivos)
+				data: new FormData(form),
+				processData: false,
+				contentType: false,
+
+				success: function (dadosDeRetorno) {
+					alert("Sucesso! " + dadosDeRetorno);
+				},
+				
+				error: function () {
+					alert("Deu ruim! :(");
+				}
+				
+			};
+			
+			$.ajax(opcoes);
+		}
+		
+	});
+</script>
 
 </main>
