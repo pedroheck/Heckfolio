@@ -29,7 +29,7 @@ export = class Arte {
 			return "Imagem inválida";
 		}
 
-		if (imagem.size > (4096 * 4096)) {
+		if (imagem.size > (8192 * 8192)) {
 			return "Imagem muito grande";
 		}
 
@@ -136,7 +136,7 @@ export = class Arte {
 			return erro;
 
 		// @@@ Upload de arquivos
-		// Aqui, a foto é opcional, então, está OK caso ela não exista!
+		// Aqui, a foto é opcional, então está OK caso ela não exista!
 		if (imagem) {
 			erro = Arte.validarImagem(imagem);
 			if (erro) {

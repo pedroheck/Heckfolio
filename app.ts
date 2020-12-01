@@ -63,9 +63,13 @@ app.get("/contato", (req: express.Request, res: express.Response) => {
 app.get("/upload", (req: express.Request, res: express.Response) => {
 	res.render("upload");
 });
-app.get("/excluir", (req: express.Request, res: express.Response) => {
-	res.render("excluir");
-});
+app.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
+	let opcoes = {
+		artes: await Arte.listar()
+	};
+
+	res.render("excluir", opcoes);
+}));
 
 app.listen(1337, () => {
 	console.log("Executando servidor na porta 1337");

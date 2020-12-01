@@ -298,8 +298,12 @@ header {
     font-size: 0.8em;
   }
   
-  .fadeIn-top{
-    top: 20%;
+  .fadeIn-left{
+    left: 20%;
+  }
+
+  .fadeIn-right{
+    left: 80%;
   }
   
 

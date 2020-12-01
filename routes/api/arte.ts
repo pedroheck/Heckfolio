@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/listar", wrap(async (req: express.Request, res: express.Response) => {
 	// Operações extras... Usuário está logado? Tem permissão de ver essa lista?
 
-	let lista = await Arte.listar();
+	let lista = (await Arte.listar());
 
 	res.json(lista);
 }));
