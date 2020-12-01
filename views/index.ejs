@@ -24,6 +24,7 @@
                             <div class="content-details fadeIn-top">
                                 <h3><%= artes[i].titleArte %></h3>
                                 <p><%= artes[i].descArte %></p>
+                                <p style="font-size: 10px;"><%= artes[i].dateArte %></p>
                             </div>
                         </div>
                     </div>
@@ -51,8 +52,17 @@
                     </div>
                 </div>
             </div>
+            <div class="container-desenho">
+                <div class="content">
+                    <div class="content-overlay"></div>
+                    <img src="/images/aguia.jpg"class="desenho"/>
+                    <div class="content-details fadeIn-top">
+                        <h3>O Voo</h3>
+                        <p>20cm x 35cm</p>
+                    </div>
+                </div>
+            </div>
 
-            
         </div>
         <div class="column coluna-imagens">
             <% for (let i = 0; i < artes.length; i++) { %>
@@ -64,6 +74,7 @@
                             <div class="content-details fadeIn-top">
                                 <h3><%= artes[i].titleArte %></h3>
                                 <p><%= artes[i].descArte %></p>
+                                <p style="font-size: 10px;"><%= artes[i].dateArte %></p>
                             </div>
                         </div>
                     </div>
@@ -79,24 +90,22 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="container-desenho">
-                <div class="content">
-                    <div class="content-overlay"></div>
-                    <img src="/images/mr_scott.jpg"class="desenho"/>
-                    <div class="content-details fadeIn-top">
-                        <h3>Mr. Scott</h3>
-                        <p>101cm x 127cm</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="container-desenho">
                 <div class="content">
                     <div class="content-overlay"></div>
                     <img src="/images/chernobyl.jpg"class="desenho"/>
                     <div class="content-details fadeIn-top">
                         <h3>Chernobyl</h3>
+                        <p>101cm x 127cm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-desenho">
+                <div class="content">
+                    <div class="content-overlay"></div>
+                    <img src="/images/mr_scott.jpg"class="desenho"/>
+                    <div class="content-details fadeIn-top">
+                        <h3>Mr. Scott</h3>
                         <p>101cm x 127cm</p>
                     </div>
                 </div>
