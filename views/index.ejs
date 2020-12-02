@@ -1,16 +1,4 @@
 <main style="background: rgb(43, 43, 43)">
-
-    <!-- <% for (let i = 0; i < artes.length; i++) { %>
-    <div>
-        <h1><%= artes[i].titleArte %></h1>
-        <div>
-            <img src="/images/artes/<%= artes[i].idArte %>.jpg" />
-        </div>
-        <div style="white-space: pre-wrap;"><%= artes[i].descArte %></div>
-        <small>(<%= artes[i].dateArte %>)</small>
-    </div>
-    <% } %> -->
-
     <div class="row imagens">
         <div class="column coluna-imagens">
             <% for (let i = 0; i < artes.length; i++) { %>
@@ -18,7 +6,7 @@
                     <div class="container-desenho">
                         <div class="content">
                             <div class="content-overlay"></div>
-                            <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].titleArte %>"/>
+                            <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].descArte %>"/>
                             <div class="content-details fadeIn-right">
                                 <h3><%= artes[i].titleArte %></h3>
                                 <p><%= artes[i].descArte %></p>
@@ -59,7 +47,7 @@
                     <div class="container-desenho">
                         <div class="content">
                             <div class="content-overlay"></div>
-                            <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].titleArte %>"/>
+                            <img src="/images/artes/<%= artes[i].idArte %>.jpg" id="<%=artes[i].idArte %>" class="desenho" alt="<%= artes[i].descArte %>"/>
                             <div class="content-details fadeIn-left">
                                 <h3><%= artes[i].titleArte %></h3>
                                 <p><%= artes[i].descArte %></p>
@@ -69,6 +57,7 @@
                     </div>
                 <% } %>   
             <% } %> 
+            
             <div class="container-desenho">
                 <div class="content">
                     <div class="content-overlay"></div>
@@ -79,6 +68,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="container-desenho">
                 <div class="content">
                     <div class="content-overlay"></div>
@@ -110,14 +100,8 @@
                 </div>
             </div>
         </div>
-        <!-- The Modal -->
-        <!-- <div id="myModal" class="modal"> -->
-            <!-- The Close Button -->
-            <!-- <span class="close">&times;</span> -->
-            <!-- Modal Content (The Image) -->
-            <!-- <img class="modal-content" id="modal-astronauta"> -->
-            <!-- Modal Caption (Image Text) -->
-            <!-- <div id="caption"></div> -->
-    <!-- </div> -->
+    </div>
+
+    <!-- <script src="/public/js/modal.js"></script> -->
 </main>
 
