@@ -61,9 +61,6 @@ header {
    width: 80%;
  }
 
- #menu{
- }
-
  #linha-menu{
     display: inline-block;
     position: relative;
@@ -130,19 +127,20 @@ header {
   } */
 
   /* O Modal (background) */
-/* .modal {
-    display: none; /* Hidden by default */
+  /* .modal 
+    display: none; Hidden by default
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-  } */
+    /* z-index: 1; Sit on top */
+    /* padding-top: 100px; Location of the box */
+    /* left: 0; */
+    /* top: 0; */
+    /* width: 100%; Full width */
+    /* height: 100%; Full height */
+    /* overflow: auto; Enable scroll if needed */
+    /* background-color: rgb(0,0,0); Fallback color */
+    /* background-color: rgba(0,0,0,0.9); Black w/ opacity */
+
+    /* } não sei porque diabos o layout do portfolio dá ruim se eu tirar essa chave */
   
   /* conteúdo do Modal (Image) */
   /* .modal-content {
@@ -210,10 +208,7 @@ header {
     box-sizing: border-box;
   } */
   
-  .container-desenho{
-    padding: 1em 0;
-    width: 50%;
-  }
+  
 
   /* @media screen and (max-width: 640px){
     .container-desenho{
@@ -549,7 +544,7 @@ footer #redes_sociais ul li a img{
   margin-left: 50px;
 }
 
-.container-imagem-contato{
+.imagem-contato{
   height: 400px;
   float: right;
   margin-right: 7%;
@@ -587,24 +582,30 @@ form{
 
 /*------------------------------------ Upload -----------------------------------------------------*/
 
-#formCriar{
-  margin-left: 30px;
+.container-upload{
+  margin: 0 0 50px 10%;
   display: inline-block;
 }
 
-#container-form-upload{
-  width: 40%;
+.imagem-upload{
+  height: 100px;
+  float: right;
+  margin-right: 7%;
+  margin-top: 200px;
 }
 
-#container-form-upload label{
-  width: 10em;
-  text-align: right;
+.container-texto-upload{
+  display: inline;
 }
 
 .campoUpload{
+  display: block;
+  width: 100%;
+  padding: 10px;
   border: none;
   text-align: left;
   padding-left: 0;
+  margin-bottom: 20px;
 }
 
 #botao-upload{
@@ -612,6 +613,13 @@ form{
   background: #242222;
   color: rgb(231, 228, 228);
   padding: 5px;
+  float: right;
+  transform: translate(0, -10px);
+}
+
+#botao-upload:hover{
+  background: rgb(60, 218, 183);
+  color: black;
 }
 
 /* #container-form-upload button.submit{

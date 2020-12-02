@@ -121,72 +121,72 @@
     //]]>
   </script>
 </main> -->
-
-<div class="tabela">
-  <table class="table table-hover">
-      <thead class="thead-dark">
-          <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Título</th>
-              <th scope="col">Desenho</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Data de Criação</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-          </tr>
-      </thead>
-
-      <tbody>
-          <!-- Construção dos itens da tabela -->
-          <% for (let i = 0; i < artes.length; i++) { %>
-              <tr>
-                  <th scope="row" class="align-middle"><%=artes[i].idArte%></th>
-                  <td><div style="height: 80px; width: 80px; text-align: center;">
-                    <img src="/images/artes/<%= artes[i].idArte %>.jpg" style="max-width: 100%; max-height: 100%; position: relative; top: 50%; transform: translate(0, -50%)">
-                  </div></td>
-                  <td class="align-middle"><%=artes[i].titleArte%></td>
-                  <td class="align-middle"><%=artes[i].descArte%></td>
-                  <td class="align-middle"><%=artes[i].dateArte%></td>
-                  <td class="align-middle">
-                      <!-- <a href="/arte/alterar/<%=artes[i].idArte%>" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i></a> -->
-                      <button type="button" class="btn btn-danger btn-sm rounded-0" onclick="excluir('<%=artes[i].idArte%>')"><i class="fa fa-trash"></i></a>
-                  </td>
-              </tr>
-          <% } %>
-      </tbody>
-  </table>
-</div>
-
-
-<script type="text/javascript">
+<main>
+  <div class="tabela">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" style="background: rgb(60, 218, 183);">ID</th>
+                <th scope="col" style="background: rgb(60, 218, 183);">Título</th>
+                <th scope="col" style="background: rgb(60, 218, 183);">Desenho</th>
+                <th scope="col" style="background: rgb(60, 218, 183);">Descrição</th>
+                <th scope="col" style="background: rgb(60, 218, 183);">Data de Criação</th>
+                <th scope="col" style="background: rgb(60, 218, 183);"></th>
+            </tr>
+        </thead>
   
-  function excluir(id) {
-        if ($.active) {
-            return
-        }
-
-        if(!confirm(`Excluir desenho ${id}?`)) {
-            return
-        }
-
-        let opcoes = {
-            url: "/api/arte/excluir/" + id,
-            method: 'GET',
-
-            success: function(dadosDeRetorno){
-                alert('Arte excluída!')
-                location.reload();
-            },
-
-            error: function() {
-                alert('Vish... deu ruim :(')
-            }
-        };
-
-        $.ajax(opcoes);
-    }
-
-  //]]>
-</script>
-
-<script src="https://kit.fontawesome.com/b07462f874.js" crossorigin="anonymous"></script>
+        <tbody>
+            <!-- Construção dos itens da tabela -->
+            <% for (let i = 0; i < artes.length; i++) { %>
+                <tr>
+                    <th scope="row" class="align-middle" style="font-weight: 500;"><%=artes[i].idArte%></th>
+                    <td><div style="height: 80px; width: 80px; text-align: center;">
+                      <img src="/images/artes/<%= artes[i].idArte %>.jpg" style="max-width: 100%; max-height: 100%; position: relative; top: 50%; transform: translate(0, -50%)">
+                    </div></td>
+                    <td class="align-middle"><%=artes[i].titleArte%></td>
+                    <td class="align-middle"><%=artes[i].descArte%></td>
+                    <td class="align-middle"><%=artes[i].dateArte%></td>
+                    <td class="align-middle">
+                        <!-- <a href="/arte/alterar/<%=artes[i].idArte%>" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i></a> -->
+                        <button type="button" class="btn btn-danger btn-sm rounded-0" onclick="excluir('<%=artes[i].idArte%>')"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+  </div>
+  
+  
+  <script type="text/javascript">
+    
+    function excluir(id) {
+          if ($.active) {
+              return
+          }
+  
+          if(!confirm(`Deseja excluir a ilustração ${id}?`)) {
+              return
+          }
+  
+          let opcoes = {
+              url: "/api/arte/excluir/" + id,
+              method: 'GET',
+  
+              success: function(dadosDeRetorno){
+                  alert('Ilustração excluída!')
+                  location.reload();
+              },
+  
+              error: function() {
+                  alert('Vish... deu ruim :(')
+              }
+          };
+  
+          $.ajax(opcoes);
+      }
+  
+    //]]>
+  </script>
+  
+  <script src="https://kit.fontawesome.com/b07462f874.js" crossorigin="anonymous"></script>
+</main>

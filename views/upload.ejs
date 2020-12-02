@@ -1,25 +1,32 @@
-<main style="text-align: center;">
-	<form id="formCriar">
-		<div id="container-form-upload">
-			<label for="titleArte">Título</label>
-			<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" />
-			
-			<label for="descArte">Descrição</label>
-			<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
-			
-			<label for="dateArte">Data de Criação</label>
-			<input type="date" id="dateArte" class="campoUpload" name="dateArte" />
-			
-			<label for="imagem">Imagem</label>
-			<input type="file" id="imagem" name="imagem" accept="image/*" style=""/>
-			
-			<button id="botao-upload" type="submit">
-				Criar
-			</button>
+<main>
+	<div class="container-upload">
+		<!-- <img class="imagem-upload" src="/images/logo.png"> -->
+		<div class="container-texto-upload">
+			<form id="form-upload">
+				<label for="titleArte">Título</label>
+				<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" />
 				
-			<a href="/">Voltar</a>
+				<label for="descArte">Descrição</label>
+				<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
+				
+				<label for="dateArte">Data de Criação</label>
+				<input type="date" id="dateArte" class="campoUpload" name="dateArte" style="padding-left: 20px;"/>
+				
+				<label for="imagem">Imagem</label>
+				<input type="file" id="imagem" class="campoUpload" name="imagem" accept="image/*" style="display: block;"/>
+				
+				<a href="/" style="color:rgb(60, 218, 183)">Voltar</a>
+
+				<button id="botao-upload" type="submit">
+					Criar
+				</button>
+					
+				
+		</form>
 		</div>
-	</form>
+		
+	</div>
+	
 
 
 
