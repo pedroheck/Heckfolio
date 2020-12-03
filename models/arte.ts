@@ -88,6 +88,7 @@ export = class Arte {
 			if(lista && lista.length) 
 				arte = lista[0];
 			
+			console.log(lista[0]);
 		});
 
 		return arte;

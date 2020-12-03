@@ -1,35 +1,29 @@
-<main style="text-align: center;">
-	<form id="formCriar">
-		<div id="container-form-upload">
-			<% if(arte) { %>
-				<p class="font-weight-bold">Id: <span> <%= Arte.idArte %> </span></p>
-			<% } %>
-			
-			<input type="hidden" id="idArte" class="form-control" name="idArte" value="<%= (arte ? Arte.idArte : '')%>"/>
-
-
-			<label for="titleArte">Título</label>
-			<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" value="<%= (arte ? arte.titleArte : '')%>"/>
-			
-			<label for="descArte">Descrição</label>
-			<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;" value="<%= (arte ? arte.descArte : '')%>"></textarea>
-			
-			<label for="dateArte">Data de Criação</label>
-			<input type="date" id="dateArte" class="campoUpload" name="dateArte" value="<%= (arte ? arte.dateArte : '')%>"/>
-			
-			<label for="imagem">Imagem</label>
-			<input type="file" id="imagem" name="imagem" accept="image/*"/>
-			
-			<button id="botao-upload" type="submit">
-				<%= (arte ? "Salvar" : "Criar") %>
-			</button>
+<main>
+	<div class="container-upload">
+		<!-- <img class="imagem-upload" src="/images/logo.png"> -->
+		<div class="container-texto-upload">
+			<form id="formCriar">
+				<label for="titleArte">Título</label>
+				<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" />
 				
-			<a href="/">Voltar</a>
+				<label for="descArte">Descrição</label>
+				<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
+				
+				<label for="dateArte">Data de Criação</label>
+				<input type="date" id="dateArte" class="campoUpload" name="dateArte" style="padding-left: 20px;"/>
+				
+				<label for="imagem">Imagem</label>
+				<input type="file" id="imagem" class="campoUpload" name="imagem" accept="image/*" style="display: block;"/>
+				
+				<a href="/" style="color:rgb(60, 218, 183)">Voltar</a>
+
+				<button id="botao-upload" type="submit">
+					Criar
+				</button>
+			</form>
 		</div>
-	</form>
-
-
-
+	</div>
+	
 <!--
 	jQuery Validate 1.19
 	
@@ -44,17 +38,6 @@
 
 <script type="text/javascript">
 	
-	let valorID = $("#idArte").val(); 
-	let v_id = parseInt(valorID );
-
-	let criacao;
-
-	if (v_id) {
-		criacao= false;
-	} else {
-		criacao= true;
-	}
-
 	$("#formCriar").validate({
 		
 		rules: {
@@ -83,7 +66,7 @@
 			
 			let opcoes = {
 				
-				url: (criacao ? "/api/arte/criar" : "/api/arte/alterar"),
+				url: "/api/arte/criar",
 				
 				// Não precisa do cache para POST e PUT!
 				method: "POST",
@@ -97,10 +80,6 @@
 				contentType: false,
 
 				success: function (dadosDeRetorno) {
-					if (criacao) {
-					$("#formCriar").trigger("reset");
-					$("#formCriar").validate().resetForm();
-					}
 					alert("Sucesso! " + dadosDeRetorno);
 				},
 				

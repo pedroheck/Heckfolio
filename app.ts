@@ -61,7 +61,7 @@ app.get("/contato", (req: express.Request, res: express.Response) => {
 	res.render("contato");
 });
 app.get("/upload", (req: express.Request, res: express.Response) => {
-	res.render("upload");
+	res.render("upload", {arte: null});
 });
 app.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
 	let opcoes = {
@@ -70,6 +70,23 @@ app.get("/excluir", wrap(async (req: express.Request, res: express.Response) => 
 
 	res.render("excluir", opcoes);
 }));
+
+app.get("/alterar/:id", wrap(async (req: express.Request, res: express.Response) => {
+	let idArte = parseInt(req.params["id"]);
+
+	if (isNaN(idArte)) {
+		res.render("/excluir");
+	} else {
+		let arte = await Arte.obter(idArte);
+		
+		if (!arte) {
+			res.render("/excluir");
+		} else {
+			res.render("/upload", {arte: arte});
+		}
+	}
+}));
+
 
 app.listen(1337, () => {
 	console.log("Executando servidor na porta 1337");

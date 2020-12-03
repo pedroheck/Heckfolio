@@ -1,5 +1,5 @@
 <main>
-    <div class="container-contato">
+    <!-- <div class="container-contato">
         <img class="imagem-contato" src="/images/mao_sketch.png">
         <div class="container-texto-contato">
             <form method="post" name="myemailform" action="form-to-email.php">
@@ -15,5 +15,30 @@
                 <button type="submit" id="botao-contato">Enviar mensagem</button>
             </form>
         </div>
+    </div> -->
+
+    <div class="container-contato">
+        <img class="imagem-contato" src="/images/mao_sketch.png">
+        <div class="container-texto-contato">
+            <form>
+                <label for="nome">Nome e sobrenome</label>
+                <input type="text" class="input" name="nome" required placeholder="Nome Sobrenome">
+        
+                <label for="email">E-mail</label>
+                <input type="email" class="input" name="email" required placeholder="seuemail@dominio.com">
+        
+                <label for="mensagem">Mensagem</label>
+                <textarea class="input" name="mensagem" required placeholder="Diga-nos o que deseja falar"></textarea>
+            
+                <button id="botao-contato" onclick="enviar">Enviar mensagem</button>
+            </form>
+        </div>
     </div>
+
+    <script type="text/javascript">
+        function enviar(){
+            console.log("Email blablabla");
+            alert("E-mail enviado com sucesso! Logo entraremos em contato :)");
+        }
+    </script>
 </main>
