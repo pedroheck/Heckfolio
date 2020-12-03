@@ -3,17 +3,21 @@
 		<!-- <img class="imagem-upload" src="/images/logo.png"> -->
 		<div class="container-texto-upload">
 			<form id="formCriar">
+				<input type="hidden" id="idArte" name="idArte" value="<%= (arte ? arte.idArte : '0') %>" />
+
 				<label for="titleArte">Título</label>
-				<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" />
+				<input type="text" id="titleArte" class="campoUpload" name="titleArte" maxlength="100" value="<%= (arte ? arte.titleArte : '') %>" />
 				
 				<label for="descArte">Descrição</label>
-				<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;"></textarea>
+				<textarea id="descArte" class="campoUpload" name="descArte" maxlength="200" rows="5" style="resize: vertical;"><%= (arte ? arte.descArte : '') %></textarea>
 				
 				<label for="dateArte">Data de Criação</label>
-				<input type="date" id="dateArte" class="campoUpload" name="dateArte" style="padding-left: 20px;"/>
+				<input type="date" id="dateArte" class="campoUpload" name="dateArte" style="padding-left: 20px;" value="<%= (arte ? arte.dateArte : '') %>"/>
 				
+				<% if (!arte) { %>
 				<label for="imagem">Imagem</label>
 				<input type="file" id="imagem" class="campoUpload" name="imagem" accept="image/*" style="display: block;"/>
+				<% } %>
 				
 				<a href="/" style="color:rgb(60, 218, 183)">Voltar</a>
 
@@ -66,7 +70,7 @@
 			
 			let opcoes = {
 				
-				url: "/api/arte/criar",
+				url: "<%- (arte ? '/api/arte/alterar' : '/api/arte/criar') %>",
 				
 				// Não precisa do cache para POST e PUT!
 				method: "POST",

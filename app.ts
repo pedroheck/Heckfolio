@@ -75,14 +75,14 @@ app.get("/alterar/:id", wrap(async (req: express.Request, res: express.Response)
 	let idArte = parseInt(req.params["id"]);
 
 	if (isNaN(idArte)) {
-		res.render("/excluir");
+		res.render("excluir");
 	} else {
 		let arte = await Arte.obter(idArte);
 		
 		if (!arte) {
-			res.render("/excluir");
+			res.render("excluir");
 		} else {
-			res.render("/upload", {arte: arte});
+			res.render("upload", {arte: arte});
 		}
 	}
 }));

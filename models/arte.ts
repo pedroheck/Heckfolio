@@ -83,12 +83,10 @@ export = class Arte {
 
 		await Sql.conectar(async (sql) => {
 
-			let lista = await sql.query("select idArte, titleArte, descArte, dateArte from Arte where idArte = ?", [idArte]);
+			let lista = await sql.query("select idArte, titleArte, descArte, date_format(dateArte, '%Y-%m-%d') dateArte from Arte where idArte = ?", [idArte]);
 
 			if(lista && lista.length) 
 				arte = lista[0];
-			
-			console.log(lista[0]);
 		});
 
 		return arte;
@@ -152,7 +150,7 @@ export = class Arte {
 			// caso a gravação do arquivo dê errado
 			await sql.beginTransaction();
 
-			let lista = await sql.query("update arte set titleArte = ?, descArte = ? where idArte = ?", [arte.titleArte, arte.descArte, arte.idArte]);
+			let lista = await sql.query("update arte set titleArte = ?, descArte = ?, dateArte = ? where idArte = ?", [arte.titleArte, arte.descArte, arte.dateArte, arte.idArte]);
 
 			if (!sql.linhasAfetadas) {
 				erro = "Arte não encontrada";
