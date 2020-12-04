@@ -127,8 +127,8 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col" style="background: rgb(60, 218, 183);">ID</th>
-                <th scope="col" style="background: rgb(60, 218, 183);">Título</th>
                 <th scope="col" style="background: rgb(60, 218, 183);">Desenho</th>
+                <th scope="col" style="background: rgb(60, 218, 183);">Título</th>
                 <th scope="col" style="background: rgb(60, 218, 183);">Descrição</th>
                 <th scope="col" style="background: rgb(60, 218, 183);">Data de Criação</th>
                 <th scope="col" style="background: rgb(60, 218, 183);"></th>
@@ -147,7 +147,7 @@
                     <td class="align-middle"><%=artes[i].descArte%></td>
                     <td class="align-middle"><%=artes[i].dateArte%></td>
                     <td class="align-middle">
-                        <a href="/alterar/<%=artes[i].idArte%>" class="btn btn-success btn-sm rounded-0"><i class="fa fa-edit"></i></a>
+                        <a href="/alterar/<%=artes[i].idArte%>" class="btn btn-success btn-sm rounded-0"><i class="fas fa-pencil-alt"></i></a>
                         <button type="button" class="btn btn-danger btn-sm rounded-0" onclick="excluir('<%=artes[i].idArte%>')"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>

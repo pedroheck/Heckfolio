@@ -17,10 +17,48 @@
         </div>
     </div> -->
 
+    <!-- <script type="text/javascript">
+        $("#form-contato").validate({
+            rules: {
+                nome: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+				},
+				mensagem: {
+					required: true
+				}
+			},
+			
+			submitHandler: function(form) {
+                if ($.active) {
+                    return;
+				}
+
+				$.ajax({
+
+                    url: "/send",
+                    method: "POST",
+                    data: $(form).serialize(),
+				   
+					success: function() {
+                        alert("Sucesso! ");
+					},
+					
+                    error: function() {
+                        alert("Deu ruim! :(");
+                    }
+                });
+            }
+        });
+    </script> -->
+
     <div class="container-contato">
         <img class="imagem-contato" src="/images/mao_sketch.png">
         <div class="container-texto-contato">
-            <form>
+            <form id="form-contato">
                 <label for="nome">Nome e sobrenome</label>
                 <input type="text" class="input" name="nome" required placeholder="Nome Sobrenome">
         
@@ -30,15 +68,14 @@
                 <label for="mensagem">Mensagem</label>
                 <textarea class="input" name="mensagem" required placeholder="Diga-nos o que deseja falar"></textarea>
             
-                <button id="botao-contato" onclick="enviar">Enviar mensagem</button>
+                <button id="botao-contato" onclick="enviar()">Enviar mensagem</button>
             </form>
         </div>
     </div>
 
     <script type="text/javascript">
         function enviar(){
-            console.log("Email blablabla");
-            alert("E-mail enviado com sucesso! Logo entraremos em contato :)");
+            alert("E-mail enviado com sucesso! Aguarde o retorno em breve :)");
         }
     </script>
 </main>
